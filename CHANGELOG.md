@@ -4,6 +4,25 @@ All notable changes to **Draft+** are documented here.
 
 The format is loosely based on [Keep a Changelog](https://keepachangelog.com/en/1.1.0/).
 
+## [0.2.0] — 2026-05-12
+
+### Added
+
+- **Minus Strike & Defend** — optional modifier: when **Starter+**, **Starter Rewards**, or **Starter Shops** is on, **Basic Strike/Defend** are filtered out of those starter-related pools (including Basics from character pools in the same flows).
+- **Starter+** — **Draft+** is now a **companion** to **Draft**, **Sealed Deck**, or **Insanity** (it no longer replaces vanilla Draft as a mutually exclusive mode). Tick **Starter+** with one of those trio modes so starter (**Basic**) cards can appear in that mode’s Neow card flow.
+
+### Changed
+
+- Neow pools, rewards, and shops share **Character Cards**–aware starter merging via **StarterDeckHelpers**; reward `CreateForReward` paths updated for uniform / sealed-style generation where needed.
+- Custom mode modifier screen — Harmony on **`NCustomRunModifiersList.AfterModifiersChanged`** so **Starter+** / **Starter Rewards** / **Starter Shops** / **Minus** interact cleanly with the trio modes.
+- **Starter Shops** in-mod description shortened; **README** uses **Custom mode** wording and states that Draft+ adds Custom mode modifiers.
+- Manifest **`version`**: **v0.2.0**; description aligned with the feature set above.
+
+### Fixed
+
+- Harmony postfix parameter name for **`AfterModifiersChanged`** matches the game method (avoids “parameter not found” / patch skip on some builds).
+- **Pandora’s Box** — with Draft / Sealed Deck / Insanity, Darv can offer it only when a player deck still has a **Strike** or **Defend** after the draft-related flow.
+
 ## [0.1.0] — 2026-05-11
 
 ### Added

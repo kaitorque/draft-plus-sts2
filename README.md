@@ -1,8 +1,8 @@
 # Draft+ (Slay the Spire 2)
 
-Custom run modifiers that let **starter (Basic) cards** show up where vanilla Draft and combat rewards normally exclude them.
+**Draft+** is a mod that adds **Custom mode** modifiers: **Starter+** pairs with **Draft**, **Sealed Deck**, or **Insanity** so **starter (Basic) cards** can appear in that Neow flow. Separate modifiers add starters to **combat rewards** and **shops**; optional **Minus Strike & Defend** removes Basic Strike/Defend from those pools when Starter+, Rewards, or Shops are on.
 
-**Source:** [github.com/kaitorque/draft-plus-sts2](https://github.com/kaitorque/draft-plus-sts2)
+**Download:** [Nexus Mods — Draft+](https://www.nexusmods.com/slaythespire2/mods/861) · **Source:** [github.com/kaitorque/draft-plus-sts2](https://github.com/kaitorque/draft-plus-sts2)
 
 Requires **[BaseLib](https://github.com/Alchyr/BaseLib-StS2)** in your game `mods` folder.
 
@@ -10,18 +10,16 @@ Requires **[BaseLib](https://github.com/Alchyr/BaseLib-StS2)** in your game `mod
 
 ## Features
 
-### Draft+ (`DraftPlus`)
+### Starter+ (`DraftPlus`)
 
-- Appears in **Custom Run** as its own modifier (mutually exclusive with vanilla **Draft**).
-- Clears your deck and runs the same **10 × pick 1 of 3** Neow draft as Draft.
-- Draft pool = your character card pool **plus** starter decks:
-  - Your character’s **StartingDeck**
-  - If you use **Character Cards**, each enabled extra character’s **StartingDeck** is merged in too (so their starters can appear in the draft).
-- **Pandora’s Box**: removed from relic grab bags **after** the draft **unless** any player ended with a card whose id looks like **Strike** or **Defend** (substring match on `ModelId.Entry`). If you drafted strikes/defends, Pandora’s Box can show up later (e.g. Darv) like a less restricted Draft run.
+- A **companion modifier** for **Draft**, **Sealed Deck**, or **Insanity** (**Custom mode**).
+- When enabled, **starter (Basic) cards can appear in that Neow** mode’s card flow.
+- **Character Cards** compatible: extra character **card pools** (via game hook) and **starting decks** (via this mod’s starter merge) are included.
+- **Pandora’s Box**: normally can’t be offered by **Darv** in Draft/Sealed/Insanity. With Starter+ enabled, it can be offered only if your deck still has any Strike/Defend.
 
 ### Starter Rewards (`StarterRewards`)
 
-- Optional Custom Run modifier.
+- Optional **Custom mode** modifier.
 - When enabled, **combat card rewards** (`Encounter` source, non-uniform rarity path) can pull from **starter cards** as well as the usual pool:
   - Starters are merged into the candidate pool; when the rolled rarity is **Common**, **Basic** starters are included in the pick list (vanilla never rolls “Basic” as a rarity).
 - Does **not** change shops, events, or uniform pools by design.
@@ -29,9 +27,15 @@ Requires **[BaseLib](https://github.com/Alchyr/BaseLib-StS2)** in your game `mod
 
 ### Starter Shops (`StarterShop`)
 
-- Optional Custom Run modifier (**Starter Shops** in the UI).
+- Optional **Custom mode** modifier (**Starter Shops** in the UI).
 - Uses the same merged starter decks as **Draft+** / **Starter Rewards** (your character plus **Character Cards** extras; see `StarterDeckHelpers`).
 - Vanilla shops strip all **Basic** cards before rarity rolls, which hides starter Strikes/Defends. With this on, **Basic** cards from that merged starter set are kept and can show up when the slot rolls **Common** (other Basics stay excluded); same high‑level idea as **Starter Rewards**.
+
+### Minus Strike & Defend (`MinusStrikeDefendStarters`)
+
+- Optional **Custom mode** modifier.
+- Only relevant if you have **Starter+**, **Starter Rewards**, or **Starter Shops** enabled.
+- Removes **Basic Strike/Defend** cards from the eligible pools used by those modifiers.
 
 ---
 
@@ -54,7 +58,7 @@ Optional for **publish / `.pck`** (assets): Megadot / Godot version pinned in `D
 
    `…/Slay the Spire 2/mods/DraftPlus/`
 
-3. Launch the game → **Settings → Mod Settings** → enable **Draft+** (`DraftPlus`). Restart if the game asks.
+3. Launch the game → **Settings → Mod Settings** and confirm **Draft+** (`DraftPlus`) is **enabled**. Then start **Custom mode**, pick **Draft**, **Sealed Deck**, or **Insanity**, and also tick **Starter+**. Restart if the game asks.
 
 Manifest notes:
 
@@ -87,9 +91,10 @@ Close the game before building if Windows locks `DraftPlus.dll`.
 | `DraftPlus.json` | Mod manifest (id, version, BaseLib dependency). |
 | `DraftPlus.csproj` | Godot.NET / Harmony / BaseLib references and post-build copy targets. |
 | `DraftPlusCode/MainFile.cs` | `[ModInitializer]` + `Harmony.PatchAll()`. |
-| `DraftPlusCode/Modifiers/DraftPlus.cs` | Draft+ modifier + related Harmony patches. |
+| `DraftPlusCode/Modifiers/DraftPlus.cs` | Starter+ companion modifier + related Harmony patches. |
 | `DraftPlusCode/Modifiers/StarterRewards.cs` | Starter Rewards modifier + encounter reward patch. |
 | `DraftPlusCode/Modifiers/StarterShop.cs` | Starter Shops modifier + merchant `CreateForMerchant` patches. |
+| `DraftPlusCode/Modifiers/MinusStrikeDefendStarters.cs` | Minus Strike & Defend modifier (filters Strike/Defend from starter-enabled pools). |
 | `DraftPlusCode/StarterDeckHelpers.cs` | Shared starter deck merge (Character Cards aware). |
 | `DraftPlus/` | Assets folder for future `.pck` content (images, localization JSON, etc.). |
 
@@ -99,7 +104,7 @@ Localization for modifier titles/descriptions is provided via **`ILocalizationPr
 
 ## Compatibility notes
 
-- **Vanilla Draft** is unchanged; use **Draft+** when you want starters in the Neow draft.
+- **Vanilla Draft / Sealed Deck / Insanity** are unchanged; use **Starter+** when you want starters in that Neow mode.
 - Mods that adjust rewards **via hooks** (e.g. changing options before generation) usually stack cleanly.
 - Mods that **replace** `CardFactory.CreateForReward` with incompatible Prefix logic may conflict depending on Harmony order — test with your full mod list.
 - **Dynamic Card Rewards** patches a **different overload** (`CreateForReward(Player, int, …)`) with Postfixes for rarity — generally compatible with this mod’s patches on the internal blacklist overload.
@@ -109,7 +114,7 @@ Localization for modifier titles/descriptions is provided via **`ILocalizationPr
 ## Credits
 
 - **MegaCrit** — *Slay the Spire 2*
-- **[Alchyr](https://github.com/Alchyr/BaseLib-StS2)** — BaseLib and [ModTemplate-StS2](https://github.com/Alchyr/ModTemplate-StS2)
+- **Alchyr** — BaseLib and [ModTemplate-StS2](https://github.com/Alchyr/ModTemplate-StS2)
 
 ---
 

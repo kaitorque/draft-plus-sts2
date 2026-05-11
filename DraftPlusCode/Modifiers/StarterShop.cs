@@ -29,7 +29,7 @@ public class StarterShop : ModifierModel, ILocalizationProvider
     public List<(string, string)>? Localization =>
     [
         ("title", "Starter Shops"),
-        ("description", "Starter cards can appear in merchant card offers when the shop rolls a Common card for that slot.")
+        ("description", "Starter cards can appear in shop card offers.")
     ];
 
     internal static bool Enabled(IRunState runState)
