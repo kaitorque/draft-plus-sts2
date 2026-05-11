@@ -53,12 +53,21 @@ Optional for **publish / `.pck`** (assets): Megadot / Godot version pinned in `D
 
 ## Install (players)
 
-1. Install **BaseLib** into `mods/` if you do not already have it.
-2. Copy this mod’s folder **`DraftPlus`** (containing `DraftPlus.dll`, `DraftPlus.json`, and optionally `DraftPlus.pck` if you use assets) into:
+1. Install **BaseLib** into your game **`mods/`** folder if you do not already have it (follow BaseLib’s layout; its folder name must match BaseLib’s manifest `id`).
 
-   `…/Slay the Spire 2/mods/DraftPlus/`
+2. **Draft+:** Install from [Nexus Mods — Draft+](https://www.nexusmods.com/slaythespire2/mods/861) (or build from source). The game only cares about this layout—the folder name **`DraftPlus`** matches the manifest **`id`**:
+
+   ```
+   …/Slay the Spire 2/mods/DraftPlus/DraftPlus.dll
+   …/Slay the Spire 2/mods/DraftPlus/DraftPlus.json
+   …/Slay the Spire 2/mods/DraftPlus/DraftPlus.pdb   ← optional
+   ```
+
+   Nexus downloads are usually a **flat** zip (those three filenames at the archive root); unpack however you like so the paths above are the result.
 
 3. Launch the game → **Settings → Mod Settings** and confirm **Draft+** (`DraftPlus`) is **enabled**. Then start **Custom mode**, pick **Draft**, **Sealed Deck**, or **Insanity**, and also tick **Starter+**. Restart if the game asks.
+
+If you build from source, **`dotnet build`** already copies the same files into **`mods/DraftPlus/`** when your StS2 install path is detected (see **Build (developers)** below).
 
 Manifest notes:
 

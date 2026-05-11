@@ -21,7 +21,7 @@ Beyond Neow, the mod adds two optional toggles: [b]Starter Rewards[/b] lets star
 
 [list]
 [*][b]Install BaseLib[/b]: [url=https://www.nexusmods.com/slaythespire2/mods/103]https://www.nexusmods.com/slaythespire2/mods/103[/url][/*]
-[*][b]Install Draft+[/b]: get the latest files from [url=https://www.nexusmods.com/slaythespire2/mods/861]https://www.nexusmods.com/slaythespire2/mods/861[/url], then unzip into your [i]Slay the Spire 2[/i] [b]mods[/b] folder so you get [code]…/Slay the Spire 2/mods/DraftPlus/[/code] containing [code]DraftPlus.dll[/code] and [code]DraftPlus.json[/code].[/*]
+[*][b]Install Draft+[/b]: [url=https://www.nexusmods.com/slaythespire2/mods/861]Nexus — Draft+[/url]. Required layout (folder [code]DraftPlus[/code] = manifest [code]id[/code]): [code]…/Slay the Spire 2/mods/DraftPlus/DraftPlus.dll[/code], [code]DraftPlus.json[/code], optional [code]DraftPlus.pdb[/code]. Release zips are usually flat (those files at the zip root); unpack so you get that tree.[/*]
 [*][b]Play[/b]: in [b]Mod Settings[/b], make sure [b]Draft+[/b] is [b]enabled[/b]. Then start [b]Custom mode[/b], pick [b]Draft[/b], [b]Sealed Deck[/b], or [b]Insanity[/b], and tick [b]Starter+[/b] as well.[/*]
 [/list]
 
