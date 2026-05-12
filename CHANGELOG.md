@@ -4,6 +4,16 @@ All notable changes to **Draft+** are documented here.
 
 The format is loosely based on [Keep a Changelog](https://keepachangelog.com/en/1.1.0/).
 
+## [0.2.1] — 2026-05-12
+
+### Fixed
+
+- **Starter Rewards** with **Minus Strike & Defend** — the encounter reward pool is filtered after merging starters so vanilla Basic Strike/Defend no longer appear when Minus is on (they were still eligible on Common rolls via the shared `possible` list).
+
+### Changed
+
+- Manifest **`version`**: **v0.2.1**.
+
 ## [0.2.0] — 2026-05-12
 
 ### Added

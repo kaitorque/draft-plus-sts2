@@ -75,6 +75,7 @@ public class StarterRewards : ModifierModel, ILocalizationProvider
                 .ToList();
 
             possible = FilterForPlayerCount(player.RunState, possible).ToArray();
+            possible = StarterDeckHelpers.FilterStrikeDefendIfEnabled(player.RunState, possible).ToArray();
 
             // Basic starters only surface when rolled rarity is Common.
             HashSet<CardRarity> allowedRarities = possible.Select(c => c.Rarity).ToHashSet();

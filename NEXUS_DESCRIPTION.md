@@ -1,7 +1,7 @@
 [center][size=5][b]Draft+[/b][/size][/center]
 [i]Starter (Basic) cards for Draft / Sealed Deck / Insanity Custom mode—plus optional rewards & shops modifiers.[/i]
 
-[hr]
+[line]
 
 [size=4][b]Description[/b][/size]
 
@@ -15,7 +15,7 @@ Beyond Neow, the mod adds two optional toggles: [b]Starter Rewards[/b] lets star
 
 [b]Pandora’s Box[/b]: With Draft / Sealed Deck / Insanity enabled, Pandora’s Box cannot be offered by [b]Darv[/b]. With this mod, it can be offered only if your deck still has at least one [b]Strike[/b] or [b]Defend[/b].
 
-[hr]
+[line]
 
 [size=4][b]Installation instructions[/b][/size]
 
@@ -25,7 +25,7 @@ Beyond Neow, the mod adds two optional toggles: [b]Starter Rewards[/b] lets star
 [*][b]Play[/b]: in [b]Mod Settings[/b], make sure [b]Draft+[/b] is [b]enabled[/b]. Then start [b]Custom mode[/b], pick [b]Draft[/b], [b]Sealed Deck[/b], or [b]Insanity[/b], and tick [b]Starter+[/b] as well.[/*]
 [/list]
 
-[hr]
+[line]
 
 [size=4][b]Main features[/b][/size]
 
@@ -36,7 +36,7 @@ Beyond Neow, the mod adds two optional toggles: [b]Starter Rewards[/b] lets star
 [*][b]Minus Strike & Defend[/b] — removes Basic Strike/Defend from Starter+ / Rewards / Shops pools.[/*]
 [/list]
 
-[hr]
+[line]
 
 [size=4][b]Requirements[/b][/size]
 
@@ -44,7 +44,7 @@ Beyond Neow, the mod adds two optional toggles: [b]Starter Rewards[/b] lets star
 [*][b]BaseLib[/b]: [url=https://www.nexusmods.com/slaythespire2/mods/103]https://www.nexusmods.com/slaythespire2/mods/103[/url][/*]
 [/list]
 
-[hr]
+[line]
 
 [size=4][b]Source code[/b][/size]
 
@@ -52,7 +52,7 @@ Beyond Neow, the mod adds two optional toggles: [b]Starter Rewards[/b] lets star
 [*][b]Draft+[/b] repository: [url=https://github.com/kaitorque/draft-plus-sts2]https://github.com/kaitorque/draft-plus-sts2[/url][/*]
 [/list]
 
-[hr]
+[line]
 
 [size=4][b]Shout outs[/b][/size]
 
